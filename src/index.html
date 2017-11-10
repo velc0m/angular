@@ -10,8 +10,9 @@
         <div ng-app="angularDemo">
             <div ng-controller="MyController">
                 <input type="text" ng-model="data.message">
-                <h3>{{data.message}}</h3>
-                <h3>{{reversedMessage(data.message)}}</h3>
+                <h3>{{"Input message - " + data.message}}</h3>
+                <h3>{{"Method reverse message - " + reversedMessage(data.message)}}</h3>
+                <h3>{{"Filter reverse message - " + (data.message | reverse)}}</h3>
             </div>
         </div>
 
