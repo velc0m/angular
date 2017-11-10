@@ -14,14 +14,18 @@
                 <h3>{{"Method reverse message - " + reversedMessage(data.message)}}</h3>
                 <h3>{{"Filter reverse message - " + (data.message | reverse)}}</h3>
 
+                <input type="text" ng-model="search.name">
+
                 <table>
                     <thead>
-                        <td>Color</td>
-                        <td>Value</td>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Film</th>
                     </thead>
-                    <tr ng-repeat="film in films">
-                        <td>{{film.color}}</td>
-                        <td>{{film.value}}</td>
+                    <tr ng-repeat="film in films | filter: search">
+                        <td>{{film.name | uppercase}}</td>
+                        <td>{{film.age}}</td>
+                        <td>{{film.films.text}}</td>
                     </tr>
                 </table>
             </div>
