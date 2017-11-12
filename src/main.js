@@ -6,15 +6,31 @@ app.filter('reverse', function () {
     }
 });
 
-app.controller("MyController", function ($scope, filmService) {
+app.controller("MyController", function ($scope, filmService, $http) {
     $scope.data = {
         message: ""
     };
 
     $scope.films = filmService.getFilms();
+    $http.get('http://www.goeuro.com/GoEuroAPI/rest/api/v3/position/suggest/en/paris')
+        .then(function (response) {
+            $scope.goeuro = response.data;
+        });
 
     $scope.reversedMessage = function (message) {
         return message.split("").reverse().join("");
+    }
+});
+
+//http request
+app.factory("goeuro", function () {
+    return {
+        getGoEuroData: function () {
+            $http.get('http://www.goeuro.com/GoEuroAPI/rest/api/v3/position/suggest/en/hamburg')
+                .then(function (response) {
+                    response.data;
+                })
+        }
     }
 });
 

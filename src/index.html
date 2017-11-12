@@ -28,6 +28,23 @@
                         <td>{{film.films.text}}</td>
                     </tr>
                 </table>
+
+                <input type="text" ng-model="searchGo">
+
+                <table>
+                    <thead>
+                        <th>position id</th>
+                        <th>name</th>
+                        <th>country</th>
+                        <th>latitude</th>
+                    </thead>
+                    <tr ng-repeat="suggest in goeuro | orderBy:'primaryName' | filter: searchGo">
+                        <td>{{suggest.positionId}}</td>
+                        <td>{{suggest.primaryName}}</td>
+                        <td>{{suggest.country | uppercase}}</td>
+                        <td>{{suggest.latitude}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
 
