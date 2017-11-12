@@ -1,4 +1,4 @@
-var app = angular.module("angularDemo", []);
+    var app = angular.module("angularDemo", []);
 
 app.directive("enter", function () {
     return {
