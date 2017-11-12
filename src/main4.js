@@ -14,7 +14,7 @@ app.directive("hightlight", function () {
   return function (scope, element, attrs) {
         element.bind("mouseenter", function () {
             //scope.showHelloMessage();
-            scope.$apply(attrs.hightlight);
+            scope.$apply(attrs.doSomeThing);
         });
   }
 });
